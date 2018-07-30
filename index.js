@@ -1,19 +1,23 @@
-var express = require("express")
-var mongoose = require("mongoose");
-var app = express();
-var PORT = "9000"
-// var config = require('./config/environment');
-// import expressConfig from './config/express';
-// import registerRoutes from './routes';
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const mongoose = require("mongoose");
+// const jwt = require("jsonwebtoken");
+var PORT = "5000"
+
+const config = require("./server/config")
 
 
-// mongoose.connect(config.mongo.uri, config.mongo.options);
-// mongoose.connection.on('error', function (err) {
-//     console.error(`MongoDB connection error: ${err}`);
-//     process.exit(-1);
-// });
+mongoose.connect(config.database);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 
+
+app.use("/api/product",require("./server/api/products"))
 
 
 app.listen(PORT, () => {
