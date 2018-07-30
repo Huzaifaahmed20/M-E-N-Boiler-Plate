@@ -11,8 +11,8 @@ export function create(req, res) {
     }
     var newUsers = new User(userObj)
     newUsers.save().then(user => {
-        var token = jwt.sign({ _id: user._id }, config.mySecret)
+        var tokens = jwt.sign({ _id: user._id }, config.mySecret)
 
-        return res.status(200).json({ token, user })
+        return res.status(200).json({ tokens, user })
     })
 }
