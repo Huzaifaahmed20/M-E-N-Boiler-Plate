@@ -4,15 +4,13 @@ import config from "../../config"
 
 
 export function create(req, res) {
-    var userObj = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    }
-    var newUsers = new User(userObj)
-    newUsers.save().then(user => {
-        var tokens = jwt.sign({ _id: user._id }, config.mySecret)
+    var newUser = new User()
+    newUser.name = req.body.name
+    newUser.email = req.body.email
+    newUser.setPassword(req.body.password)
 
-        return res.status(200).json({ tokens, user })
+    newUser.save().then(user => {
+        var token = jwt.sign({ _id: user._id }, config.mySecret)
+        return res.status(200).json({ token, user })
     })
 }
