@@ -9,6 +9,7 @@ export default function (app) {
     app.use(morgan('dev'));
 
 
-    app.use("/api/product", require("./server/api/products"))
+    app.use("/api/product", require("./server/api/product"))
+    app.use("/api/user", require("./server/api/user"))
 
 }
