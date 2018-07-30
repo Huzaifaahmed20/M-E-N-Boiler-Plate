@@ -3,6 +3,10 @@ mongo express node Boiler Plate with Passport Authentication and JWT
 
 # Get Started
 
+1. First run your mngodb server.
+
+then run commands given below
+
 ```
 git clone https://github.com/Huzaifaahmed20/M-E-N-Boiler-Plate.git
 
