@@ -17,3 +17,11 @@ export function create(req, res) {
     })
 
 }
+
+export function getAllProducts(req, res) {
+    Product.find({}).then(products => {
+        return res.json(products)
+    }).catch(() => {
+        return res.json({ "message": "Products not exist" })
+    })
+}

@@ -5,6 +5,7 @@ var router = Router();
 
 
 router.post("/", controller.create)
+router.get("/products", controller.getAllProducts)
 
 module.exports = router
 
