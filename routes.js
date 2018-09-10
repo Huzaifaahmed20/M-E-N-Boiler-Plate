@@ -11,5 +11,5 @@ export default function (app) {
 
     app.use("/api/product", require("./server/api/product"))
     app.use("/api/user", require("./server/api/user"))
-
+    app.use('/api/auth', require('./server/api/auth').default);
 }
