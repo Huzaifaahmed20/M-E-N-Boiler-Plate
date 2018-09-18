@@ -6,7 +6,7 @@ export default function (app) {
 
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-    app.use(morgan('dev'));
+    app.use(morgan('dev'))
     
     app.use(function(req, res, next) {
         res.header('Access-Control-Allow-Origin', '*');
